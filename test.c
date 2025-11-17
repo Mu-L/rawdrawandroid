@@ -504,7 +504,7 @@ void * JavscriptThread( void * v )
 			env->DeleteLocalRef( envptr, MessagePayload );
 			env->DeleteLocalRef( envptr, mpclass );
 #endif
-			snprintf( fromJSBuffer, "Unknown string type: %s (open a PR)\n", name );
+			snprintf( fromJSBuffer, sizeof( fromJSBuffer)-1, "Unknown str type: %s (open a PR)\n", name );
 		}
 		env->ReleaseStringUTFChars(envptr, strObj, name);
 		env->DeleteLocalRef( envptr, strObj );
