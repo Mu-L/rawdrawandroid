@@ -110,10 +110,12 @@ CC_x86_64=$(NDK)/toolchains/llvm/prebuilt/$(OS_NAME)/bin/x86_64-linux-android$(A
 AAPT:=$(BUILD_TOOLS)/aapt
 
 # Which binaries to build? Just comment/uncomment these lines:
-TARGETS += $(BUILD_DIR)/makecapk/lib/arm64-v8a/lib$(APPNAME).so
-TARGETS += $(BUILD_DIR)/makecapk/lib/armeabi-v7a/lib$(APPNAME).so
-TARGETS += $(BUILD_DIR)/makecapk/lib/x86/lib$(APPNAME).so
-TARGETS += $(BUILD_DIR)/makecapk/lib/x86_64/lib$(APPNAME).so
+DEFAULT_TARGETS += $(BUILD_DIR)/makecapk/lib/arm64-v8a/lib$(APPNAME).so
+DEFAULT_TARGETS += $(BUILD_DIR)/makecapk/lib/armeabi-v7a/lib$(APPNAME).so
+DEFAULT_TARGETS += $(BUILD_DIR)/makecapk/lib/x86/lib$(APPNAME).so
+DEFAULT_TARGETS += $(BUILD_DIR)/makecapk/lib/x86_64/lib$(APPNAME).so
+
+TARGETS ?= $(DEFAULT_TARGETS)
 
 CFLAGS_ARM64:=-m64
 CFLAGS_ARM32:=-mfloat-abi=softfp -m32
